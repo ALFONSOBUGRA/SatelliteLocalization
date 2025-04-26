@@ -1,0 +1,9 @@
+[submodule "matchers/LightGlue"]
+	path = matchers/LightGlue
+	url = https://github.com/cvg/LightGlue.git
+[submodule "matchers/SuperGluePretrainedNetwork"]
+	path = matchers/SuperGluePretrainedNetwork
+	url = https://github.com/magicleap/SuperGluePretrainedNetwork.git
+[submodule "matchers/gim"]
+	path = matchers/gim
+	url = https://github.com/xuelunshen/gim.git
