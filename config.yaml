@@ -1,0 +1,67 @@
+# --- General Configuration ---
+matcher_type: 'gim'  # Options: 'lightglue', 'superglue', 'gim'
+device: 'cpu'              
+
+# --- Path Configuration ---
+data_paths:
+  query_dir: 'data/query'
+  map_dir: 'data/map'
+  output_dir: 'data/output'
+  query_metadata: 'data/query/photo_metadata.csv'
+  map_metadata: 'data/map/map.csv'
+
+
+# --- Preprocessing Configuration ---
+preprocessing:
+  enabled: true 
+  steps: ['resize', 'warp']
+  resize_target: [1024]
+  target_gimbal_yaw: 0.0    
+  target_gimbal_pitch: -90.0 
+  target_gimbal_roll: 0.0
+
+# --- Camera Model Configuration ---
+camera_model:
+  focal_length: 4.5           
+  resolution_width: 3040      
+  resolution_height: 4056     
+  hfov_deg: 82.9              
+
+# --- Matcher Specific Weights & Models ---
+matcher_weights:
+  lightglue_features: 'superpoint'
+  superglue_weights: 'outdoor'
+  gim_model_type: 'lightglue'
+  gim_weights_path: 'matchers/gim/weights/gim_lightglue_100h.ckpt' 
+
+# --- Matcher Parameters ---
+matcher_params:
+  lightglue:
+    extractor_max_keypoints: 2048
+    matcher_filter_threshold: 0.1
+  superglue:
+    superpoint_max_keypoints: 2048
+    superpoint_keypoint_threshold: 0.005
+    superpoint_nms_radius: 3
+    superglue_match_threshold: 0.2
+    superglue_sinkhorn_iterations: 20
+  gim:
+    resize_max: null
+    dfactor: 8
+    dkm_h: 672
+    dkm_w: 896
+    roma_img_size: 672
+    gim_lightglue_max_keypoints: 2048
+    gim_lightglue_filter_threshold: 0.1
+
+# --- RANSAC Parameters (for Homography) ---
+ransac_params:
+  method: 'RANSAC'
+  reproj_threshold: 8.0
+  confidence: 0.999
+  max_iter: 10000
+
+# --- Benchmark Parameters ---
+benchmark_params:
+  save_visualization: true
+  min_inliers_for_success: 10
