@@ -1,3 +1,4 @@
+# Python ve IDE dosyaları
 __pycache__/
 *.py[cod]
 *$py.class
@@ -7,31 +8,30 @@ dist/
 build/
 *.so
 .Python
+.vscode/
+.idea/
 
+# Sanal Ortam Klasörleri (kullandığınız isimlere göre güncelleyin)
 venv/
 env/
 venv_matchers/
 visloc/
+/matcher_benchmark/ # Conda ortamı adı (genelde dışarıda olur ama emin olmak için)
 
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
+# İşletim Sistemi Dosyaları
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
+# Veri Çıktıları ve Geçici Dosyalar
 data/output/*
 data/processed_queries/*
 *.tmp
 *.bak
 *.log
 
+# Büyük Veri ve Model Dosyaları (Depoya eklenmemeli!)
+# data/query/*.png  # Eğer çok büyüklerse ve başka yerden indirileceklerse
+# data/map/*.png    # Eğer çok büyüklerse
 *.ckpt
 *.pth
 *.pt
@@ -39,12 +39,7 @@ data/processed_queries/*
 *.engine
 *.plan
 
-.poetry/
+# Conda/Pip önbellekleri
 .pytest_cache/
 .mypy_cache/
-.tox/
 pip-cache/
-*.dev.vars
-*.local.vars
-
-_readthedocs/
