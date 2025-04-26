@@ -47,9 +47,11 @@ Follow the detailed steps in INSTALL.md to create the Conda environment.
 ### 5. Model Weights
 
 This repository does not include pre-trained model weights (.ckpt, .pth).
+
 Download the necessary weights for the specific matcher(s) you intend to use (especially for GIM variants).
-Place the weights in an accessible location (e.g., within the respective matchers/<matcher_name>/weights directory, 
-although this might be ignored by the submodule's gitignore - a central weights/ folder outside matchers might be better).
+
+Place the weights in an accessible location (e.g., within the respective matchers/<matcher_name>/weights directory, although this might be ignored by the submodule's gitignore - a central weights/ folder outside matchers might be better).
+
 Update the paths in config.yaml under the matcher_weights section accordingly (e.g., gim_weights_path).
 
 ### 6. Run Benchmark
