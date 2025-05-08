@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="thumbnail.png" alt="Visual Localization Thumbnail" width="600"/>
+</p>
+
 # Visual Localization using pre-existing Satellite Images
 
 This repository provides a framework for benchmarking different feature matching algorithms (LightGlue, SuperGlue, GIM variants) for the task of visual localization, specifically comparing drone imagery against satellite maps. It includes pipelines for each matcher, preprocessing capabilities (resizing, warping), and calculates localization error in meters. 
