@@ -34,7 +34,7 @@ def process_resize(w: int, h: int, resize: Union[int, List[int]]) -> Tuple[int, 
         scale = resize / max_dim
         w_new, h_new = int(round(w * scale)), int(round(h * scale))
     elif isinstance(resize, (list, tuple)) and len(resize) == 2:
-        w_new, h_new = int(resize[0]), int(resize[1]) # Ensure int
+        w_new, h_new = int(resize[0]), int(resize[1]) 
     elif isinstance(resize, (list, tuple)) and len(resize) == 1 and resize[0] > 0:
         scale = resize[0] / max_dim
         w_new, h_new = int(round(w*scale)), int(round(h*scale))

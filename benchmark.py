@@ -1,5 +1,4 @@
 import yaml
-import os
 import cv2
 import numpy as np
 import pandas as pd
@@ -7,7 +6,6 @@ import time
 from pathlib import Path
 import sys
 import argparse
-import math
 
 src_path = Path(__file__).resolve().parent / 'src'
 if str(src_path) not in sys.path: sys.path.insert(0, str(src_path))
@@ -183,8 +181,6 @@ def run_benchmark(config_path: str):
                     f.write(f"  Predicted (Lat, Lon):  {f'{pred_lat:.7f}, {pred_lon:.7f}' if localization_successful_this_map else 'N/A'}\n")
                     f.write(f"  Difference (Error): {f'{meter_error:.3f}' if localization_successful_this_map else 'N/A'} meters\n")
                     f.write(f"  Localization Success (Pair): {localization_successful_this_map}\n"); f.write("-" * 30 + "\n")
-                    f.write("DEBUG INFO (Optional):\n")
-                    f.write(f"  Norm Center (X, Y): {f'({norm_center[0]:.4f}, {norm_center[1]:.4f})' if norm_center is not None else 'N/A'}\n")
                     f.write(f"  Homography (Query->Map):\n{homography}\n")
             except Exception as e: print(f"  ERROR writing results txt: {e}")
 
@@ -220,7 +216,7 @@ def run_benchmark(config_path: str):
     print(f"\n--- Benchmark Finished ---"); print(f"Total Time: {total_time:.2f} seconds")
 
 
-    if not results_summary: print("No queries processed. Skipping summary."); return # Exit if nothing to summarize
+    if not results_summary: print("No queries processed. Skipping summary."); return 
     summary_df = pd.DataFrame(results_summary)
     
     summary_df = summary_df.drop(columns=['gt_location_pixels', 'predicted_location_pixels', 'pixel_error'], errors='ignore')

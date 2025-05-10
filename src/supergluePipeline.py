@@ -68,7 +68,7 @@ class SuperGluePipeline:
             if img is None:
                 raise ValueError(f"Could not read image: {image_path.name}")
             img_tensor = frame2tensor(img, self.device)
-            return img_tensor, img.shape[:2] # Return shape (H, W)
+            return img_tensor, img.shape[:2] 
         except Exception as e:
             print(f"Error loading/preprocessing image {image_path.name}: {e}")
             return None, None
